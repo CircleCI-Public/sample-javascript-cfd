@@ -1,0 +1,8 @@
+{
+  "name": "ZoomFood",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "9c55a097"
+}
