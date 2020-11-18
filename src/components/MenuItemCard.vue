@@ -15,11 +15,11 @@
 
 .menuCard {
     max-width: 320px;
-    height: 350px;
+    height: 325px;
 }
 
 .menuCard img {
-    height: 220px;
+    height: 200px;
     width: 100%;
     object-fit: cover;
 }
