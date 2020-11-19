@@ -1,6 +1,6 @@
 <template>
     <ion-card class="menuCard">
-        <img :src="menuItem.imageUrl" />
+        <img :src="imageUrl" />
         <ion-card-header>
             <ion-card-subtitle>{{ menuItem.price }}</ion-card-subtitle>
             <ion-card-title>{{ menuItem.name }}</ion-card-title>
@@ -26,8 +26,9 @@
 </style>
 
 <script lang="ts">
+import ZoomFoodAPI from '@/api/ZoomFoodAPI'
 import { IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader } from '@ionic/vue'
-import { defineComponent } from "vue"
+import { defineComponent, ref, onMounted } from "vue"
 import { MenuItem } from "../interfaces"
 
 export default defineComponent ({
@@ -38,6 +39,16 @@ export default defineComponent ({
         menuItem: {
             type: Object as () => MenuItem,
             required: true
+        }
+    },
+    setup(props) {
+        const imageUrl = ref("/assets/img/eggPreview.jpg")
+
+        onMounted(async () => {
+            imageUrl.value = ZoomFoodAPI.getImageUrl(props.menuItem.imageId)
+        })
+        return {
+            imageUrl
         }
     }
 })

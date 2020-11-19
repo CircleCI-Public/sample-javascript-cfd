@@ -8,7 +8,7 @@
           </ion-toolbar>
         </ion-header>
         <ion-content>
-          <CartItemCard id=1 description="food" name="Chicken Wrap" price=14.99 imageURL="assets/menuPictures/stew-2067152_1280.jpg"/>
+          <CartItemCard v-for="item in cartItems" :key="item.id" :menuItem="item"/>
         </ion-content>
         <ion-footer>
           <ion-toolbar translucent>
@@ -23,8 +23,12 @@
 
 <script lang="ts">
 import { IonApp, IonContent, IonFooter, IonMenu, IonToolbar, IonHeader, IonTitle, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
-import { defineComponent } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import CartItemCard from "./components/CartItemCard.vue"
+import Axios from "axios"
+
+import { MenuItem } from "./interfaces"
+
 
 export default defineComponent({
   name: 'App',
@@ -41,7 +45,23 @@ export default defineComponent({
     CartItemCard
   },
   setup() {
-    return {}
+    const cartItems = ref<MenuItem[]>([])
+
+    function getCartItems() {
+      console.log("fetching cart items")
+      Axios.get<MenuItem[]>('http://localhost:3333/dsayling8/ZoomFoodToo/1.0.0/cart').then(response => {
+        console.log()
+        cartItems.value = response.data
+      })
+    }
+
+    onMounted(() => {
+      getCartItems()
+    })
+
+    return {
+      cartItems
+    }
   }
 });
 </script>

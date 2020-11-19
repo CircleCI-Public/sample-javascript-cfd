@@ -26,10 +26,14 @@
 <script lang="ts">
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import { ref, onMounted } from "vue"
+
 import { MenuItem } from "../interfaces"
-import Axios from "axios"
+
 
 import MenuItemCard from '../components/MenuItemCard.vue'
+
+import ZoomFoodAPI from "../api/ZoomFoodAPI"
+
 
 export default {
   name: 'Menu',
@@ -46,17 +50,8 @@ export default {
   setup() {
     const menuItems = ref<MenuItem[]>([])
 
-    function getMenuItems() {
-      console.log("fetching menu items")
-      Axios.get<MenuItem[]>('http://localhost:3333/dsayling8/ZoomFoodToo/1.0.0/menu').then(response => {
-        menuItems.value = response.data
-      })
-
-    }
-
-    onMounted(() => {
-      console.log("mounted")
-      getMenuItems()
+    onMounted(async () => {
+      menuItems.value = await ZoomFoodAPI.getMenu()
     })
 
     return {
