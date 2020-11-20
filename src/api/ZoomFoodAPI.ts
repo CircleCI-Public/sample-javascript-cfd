@@ -19,4 +19,29 @@ static getImageUrl(imageID: number): string {
     return `${BASEURL}/image/${imageID}`
 }
 
+static async getCart(): Promise<MenuItem[]> {
+    try {
+        const cartData = await axios.get<Promise<MenuItem[]>>(BASEURL + "/cart")
+        return cartData.data
+    } catch (error) {
+        return error
+    }
+}
+
+static async addCartItem(item: MenuItem): Promise<AxiosResponse> {
+    try {
+        return axios.post(`${BASEURL}/cart`, item)
+    } catch (error) {
+        return error
+    }
+}
+
+static async removeCartItem(item: MenuItem): Promise<AxiosResponse> {
+    try {
+        return axios.delete(`${BASEURL}/cart/${item.id}`)
+    } catch (error) {
+        return error
+    }
+}
+
 }

@@ -7,7 +7,7 @@
             <ion-title>Cart</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <ion-content @update-cart="getCartItems">
           <CartItemCard v-for="item in cartItems" :key="item.id" :menuItem="item"/>
         </ion-content>
         <ion-footer>
@@ -23,11 +23,12 @@
 
 <script lang="ts">
 import { IonApp, IonContent, IonFooter, IonMenu, IonToolbar, IonHeader, IonTitle, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
-import { defineComponent, ref, onMounted } from 'vue';
+import { defineComponent, ref, onMounted, provide } from 'vue';
 import CartItemCard from "./components/CartItemCard.vue"
-import Axios from "axios"
+import ZoomFoodAPI from "./api/ZoomFoodAPI"
 
 import { MenuItem } from "./interfaces"
+import Cart from "./compostables/Cart"
 
 
 export default defineComponent({
@@ -47,12 +48,10 @@ export default defineComponent({
   setup() {
     const cartItems = ref<MenuItem[]>([])
 
-    function getCartItems() {
+    async function getCartItems() {
       console.log("fetching cart items")
-      Axios.get<MenuItem[]>('http://localhost:3333/dsayling8/ZoomFoodToo/1.0.0/cart').then(response => {
-        console.log()
-        cartItems.value = response.data
-      })
+
+      cartItems.value = await ZoomFoodAPI.getCart()
     }
 
     onMounted(() => {
@@ -60,7 +59,8 @@ export default defineComponent({
     })
 
     return {
-      cartItems
+      cartItems,
+      getCartItems
     }
   }
 });

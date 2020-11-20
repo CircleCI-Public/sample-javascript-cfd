@@ -1,5 +1,5 @@
 <template>
-    <ion-card class="menuCard">
+    <ion-card class="menuCard" @click="addToCart">
         <img :src="imageUrl" />
         <ion-card-header>
             <ion-card-subtitle>{{ menuItem.price }}</ion-card-subtitle>
@@ -16,6 +16,7 @@
 .menuCard {
     max-width: 320px;
     height: 325px;
+    cursor: pointer;
 }
 
 .menuCard img {
@@ -44,11 +45,19 @@ export default defineComponent ({
     setup(props) {
         const imageUrl = ref("/assets/img/eggPreview.jpg")
 
+        function addToCart() {
+            console.log(`${props.menuItem.name} being added to cart`)
+            ZoomFoodAPI.addCartItem(props.menuItem).then(() => {
+                // app.vue will need to reset the cart data now.
+            })
+        }
+
         onMounted(async () => {
             imageUrl.value = ZoomFoodAPI.getImageUrl(props.menuItem.imageId)
         })
         return {
-            imageUrl
+            imageUrl,
+            addToCart
         }
     }
 })

@@ -1,14 +1,17 @@
 <template>
     <ion-card class="cartCard">
-        <img :src="menuItem.imageUrl" />
-        <ion-card-content class="cartCardNameContainer">
-            {{ menuItem.name }}
+        <img :src="imageUrl" class="cartImage"/>
+        <div class="cartCardNameContainer"> {{ menuItem.name }} </div>
+        <div>{{ menuItem.price }}</div>
+        <div><ion-button><ion-icon :icon="trashOutline"></ion-icon></ion-button></div>
+        <ion-card-content >
+
         </ion-card-content>
         <ion-card-content>
-            {{ menuItem.price }}
+
         </ion-card-content>
         <ion-card-content class="cartCardDeleteContainer">
-            <ion-icon :icon="trashOutline"></ion-icon>
+
         </ion-card-content>
     </ion-card>
 </template>
@@ -19,9 +22,17 @@
         flex-direction: row;
         height: 50px;
     }
+
+    .cartCard div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .cartCard img {
         height: 100%;
-        width: auto;
+        width: 65px;
+        object-fit: cover;
+        border-radius: 8px;
     }
     .cartCardNameContainer {
         flex: 1;
@@ -30,8 +41,9 @@
 </style>
 
 <script lang="ts">
-import { IonCard, IonCardContent, IonIcon } from '@ionic/vue'
-import { defineComponent } from "vue"
+import ZoomFoodAPI from '@/api/ZoomFoodAPI'
+import { IonCard, IonCardContent, IonIcon, IonButton} from '@ionic/vue'
+import { defineComponent, onMounted, ref } from "vue"
 import { trashOutline } from 'ionicons/icons';
 
 import { MenuItem } from "../interfaces"
@@ -39,7 +51,7 @@ import { MenuItem } from "../interfaces"
 export default defineComponent ({
     name: "CartItemCard",
     components: {
-        IonCard, IonCardContent, IonIcon
+        IonCard, IonCardContent, IonIcon, IonButton
     },
     props: {
         menuItem: {
@@ -47,8 +59,14 @@ export default defineComponent ({
             required: true
         }
     },
-    setup() {
+    setup(props) {
+        const imageUrl = ref("/assets/img/eggPreview.jpg")
+
+        onMounted(async () => {
+            imageUrl.value = ZoomFoodAPI.getImageUrl(props.menuItem.imageId)
+        })
         return {
+            imageUrl,
             trashOutline
         }
     }

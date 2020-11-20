@@ -70,7 +70,7 @@ ion-menu-button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
 }
 </style>
