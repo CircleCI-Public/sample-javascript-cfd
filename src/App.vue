@@ -50,14 +50,11 @@ export default defineComponent({
 
     async function getCartItems() {
       console.log("fetching cart items")
-
       cartItems.value = await ZoomFoodAPI.getCart()
     }
-
     onMounted(() => {
       getCartItems()
     })
-
     return {
       cartItems,
       getCartItems

@@ -1,18 +1,9 @@
 <template>
-    <ion-card class="cartCard">
+    <ion-card class="cartCard" @click="removeItem">
         <img :src="imageUrl" class="cartImage"/>
         <div class="cartCardNameContainer"> {{ menuItem.name }} </div>
         <div>{{ menuItem.price }}</div>
         <div><ion-button><ion-icon :icon="trashOutline"></ion-icon></ion-button></div>
-        <ion-card-content >
-
-        </ion-card-content>
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-card-content class="cartCardDeleteContainer">
-
-        </ion-card-content>
     </ion-card>
 </template>
 
@@ -25,6 +16,7 @@
 
     .cartCard div {
         display: flex;
+        flex: 1;
         justify-content: center;
         align-items: center;
     }
@@ -35,14 +27,14 @@
         border-radius: 8px;
     }
     .cartCardNameContainer {
-        flex: 1;
+        flex: 3;
         text-align: center;
     }
 </style>
 
 <script lang="ts">
 import ZoomFoodAPI from '@/api/ZoomFoodAPI'
-import { IonCard, IonCardContent, IonIcon, IonButton} from '@ionic/vue'
+import { IonCard, IonIcon, IonButton} from '@ionic/vue'
 import { defineComponent, onMounted, ref } from "vue"
 import { trashOutline } from 'ionicons/icons';
 
@@ -51,7 +43,7 @@ import { MenuItem } from "../interfaces"
 export default defineComponent ({
     name: "CartItemCard",
     components: {
-        IonCard, IonCardContent, IonIcon, IonButton
+        IonCard, IonIcon, IonButton
     },
     props: {
         menuItem: {
@@ -62,11 +54,16 @@ export default defineComponent ({
     setup(props) {
         const imageUrl = ref("/assets/img/eggPreview.jpg")
 
+        function removeItem() {
+            ZoomFoodAPI.removeCartItem(props.menuItem)
+        }
+
         onMounted(async () => {
             imageUrl.value = ZoomFoodAPI.getImageUrl(props.menuItem.imageId)
         })
         return {
             imageUrl,
+            removeItem,
             trashOutline
         }
     }

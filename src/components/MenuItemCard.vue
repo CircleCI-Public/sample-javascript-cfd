@@ -49,6 +49,7 @@ export default defineComponent ({
             console.log(`${props.menuItem.name} being added to cart`)
             ZoomFoodAPI.addCartItem(props.menuItem).then(() => {
                 // app.vue will need to reset the cart data now.
+
             })
         }
 
