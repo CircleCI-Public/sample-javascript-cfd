@@ -1,31 +1,29 @@
-import { ref } from "vue"
+import { ref, computed } from "vue"
 import ZoomFoodAPI from "../api/ZoomFoodAPI"
-import { AxiosResponse } from "axios"
-
 import { MenuItem } from "../interfaces"
 
-export default class Cart {
+const cartItems = ref<MenuItem[]>([])
 
-    static async createCart() {
-
-        const cartItems = ref<MenuItem[]>([])
-
-        async function getCartItems() {
-            console.log("fetching cart items")
-            cartItems.value = await ZoomFoodAPI.getCart()
-          }
-
-        async function deleteCartItem(item: MenuItem): Promise<AxiosResponse> {
-            console.log(`Removing item: ${item.name}`)
-            return ZoomFoodAPI.removeCartItem(item)
-        }
-
-        return {
-            cartItems,
-            getCartItems,
-            deleteCartItem
-
-        }
+export default function newuseCart() {
+    const load = async () => {
+        console.log("Reloading the cart")
+        cartItems.value = await ZoomFoodAPI.getCart()
     }
 
+    const cartTotal = computed(() => {
+        const reducer = (acc: number, item: MenuItem) => {
+            return acc + item.price
+        }
+        return cartItems.value.reduce(reducer, 0)
+    })
+
+    const deleteCartItem = async (item: MenuItem): Promise<void> => {
+        console.log(`Removing item: ${item.name}`)
+        await ZoomFoodAPI.removeCartItem(item)
+        load()
+    }
+
+    return {
+        cartItems, load, deleteCartItem, cartTotal
+    }
 }

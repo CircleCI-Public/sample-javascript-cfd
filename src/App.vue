@@ -7,12 +7,15 @@
             <ion-title>Cart</ion-title>
           </ion-toolbar>
         </ion-header>
-        <ion-content @update-cart="getCartItems">
+        <ion-content>
           <CartItemCard v-for="item in cartItems" :key="item.id" :menuItem="item"/>
         </ion-content>
         <ion-footer>
           <ion-toolbar translucent>
-            <ion-title>Order</ion-title>
+            <div class="orderSummary">
+              <h2>Order</h2>
+              <div id="cartTotal">${{cartTotal}}</div>
+            </div>
           </ion-toolbar>
         </ion-footer>
       </ion-menu>
@@ -23,12 +26,9 @@
 
 <script lang="ts">
 import { IonApp, IonContent, IonFooter, IonMenu, IonToolbar, IonHeader, IonTitle, IonRouterOutlet, IonSplitPane } from '@ionic/vue';
-import { defineComponent, ref, onMounted, provide } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import CartItemCard from "./components/CartItemCard.vue"
-import ZoomFoodAPI from "./api/ZoomFoodAPI"
-
-import { MenuItem } from "./interfaces"
-import Cart from "./compostables/Cart"
+import useCart from "./compostables/Cart"
 
 
 export default defineComponent({
@@ -46,24 +46,32 @@ export default defineComponent({
     CartItemCard
   },
   setup() {
-    const cartItems = ref<MenuItem[]>([])
+    const { cartItems, load, cartTotal } = useCart()
 
-    async function getCartItems() {
-      console.log("fetching cart items")
-      cartItems.value = await ZoomFoodAPI.getCart()
-    }
-    onMounted(() => {
-      getCartItems()
+    onMounted(async () => {
+      await load()
     })
     return {
-      cartItems,
-      getCartItems
+      cartItems, load, cartTotal
     }
   }
 });
 </script>
 
 <style scoped>
+
+.orderSummary {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 0 20px;
+}
+
+#cartTotal {
+  flex: 1;
+  text-align: right;
+}
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }

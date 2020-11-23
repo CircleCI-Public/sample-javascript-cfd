@@ -1,5 +1,5 @@
 <template>
-    <ion-card class="cartCard" @click="removeItem">
+    <ion-card class="cartCard" @click="deleteCartItem(menuItem)">
         <img :src="imageUrl" class="cartImage"/>
         <div class="cartCardNameContainer"> {{ menuItem.name }} </div>
         <div>{{ menuItem.price }}</div>
@@ -37,7 +37,7 @@ import ZoomFoodAPI from '@/api/ZoomFoodAPI'
 import { IonCard, IonIcon, IonButton} from '@ionic/vue'
 import { defineComponent, onMounted, ref } from "vue"
 import { trashOutline } from 'ionicons/icons';
-
+import useCart from "../compostables/Cart"
 import { MenuItem } from "../interfaces"
 
 export default defineComponent ({
@@ -54,16 +54,14 @@ export default defineComponent ({
     setup(props) {
         const imageUrl = ref("/assets/img/eggPreview.jpg")
 
-        function removeItem() {
-            ZoomFoodAPI.removeCartItem(props.menuItem)
-        }
+        const { deleteCartItem } = useCart()
 
         onMounted(async () => {
             imageUrl.value = ZoomFoodAPI.getImageUrl(props.menuItem.imageId)
         })
         return {
             imageUrl,
-            removeItem,
+            deleteCartItem,
             trashOutline
         }
     }

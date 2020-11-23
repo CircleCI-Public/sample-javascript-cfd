@@ -32,6 +32,8 @@ import { IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader }
 import { defineComponent, ref, onMounted } from "vue"
 import { MenuItem } from "../interfaces"
 
+import useCart from "../compostables/Cart"
+
 export default defineComponent ({
     components: {
         IonCard, IonCardContent, IonCardSubtitle, IonCardTitle, IonCardHeader
@@ -44,12 +46,13 @@ export default defineComponent ({
     },
     setup(props) {
         const imageUrl = ref("/assets/img/eggPreview.jpg")
+        const { load } = useCart()
 
         function addToCart() {
             console.log(`${props.menuItem.name} being added to cart`)
             ZoomFoodAPI.addCartItem(props.menuItem).then(() => {
                 // app.vue will need to reset the cart data now.
-
+                load()
             })
         }
 
