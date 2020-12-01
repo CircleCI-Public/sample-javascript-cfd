@@ -1,7 +1,8 @@
 import axios, {AxiosResponse} from 'axios'
 import { MenuItem } from "../interfaces"
+import Config from '../../appConfig'
 
-const BASEURL = process.env.API_URL
+const BASEURL = Config.API_URL
 
 export default class ZoomFoodAPI {
 
