@@ -2,7 +2,7 @@ import axios, {AxiosResponse} from 'axios'
 import { MenuItem } from "../interfaces"
 import Config from '../../appConfig'
 
-const BASEURL = Config.API_URL
+const BASEURL = `${Config.API_URL}:${Config.PORT}/${Config.NAME}/${Config.VERSION}`
 
 export default class ZoomFoodAPI {
 
