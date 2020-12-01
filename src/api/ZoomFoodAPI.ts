@@ -1,7 +1,7 @@
-import axios, {AxiosResponse, AxiosPromise} from 'axios'
+import axios, {AxiosResponse} from 'axios'
 import { MenuItem } from "../interfaces"
 
-const BASEURL = "http://localhost:3333/dsayling8/ZoomFoodToo/1.0.0"
+const BASEURL = process.env.API_URL
 
 export default class ZoomFoodAPI {
 
