@@ -1,6 +1,6 @@
 # Sample Javascript App - Vue.js Front-End
 
-[![CircleCI Build Status](https://circleci.com/gh/dsayling/sample-flask.svg?style=shield)](https://circleci.com/gh/dsayling/sample-flask) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/dsayling/sample-flask/main/LICENSE)
+[![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/sample-javascript-cfd/main/LICENSE)
 
 ## Description
 
@@ -10,9 +10,9 @@ In this sample config, we have a single workflow `build-and-test` which will ins
 
 ## Getting Started
 
-You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/dsayling/sample-flask?branch=main).
+You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
 
-The [CircleCI configuration](https://circleci.com/docs/2.0/configuration-reference/) file can be found at [.circleci/config.yml](https://github.com/dsayling/sample-flask/blob/main/.circleci/config.yml).
+The [CircleCI configuration](https://circleci.com/docs/2.0/configuration-reference/) file can be found at [.circleci/config.yml](https://github.com/CircleCI-Public/sample-javascript-cfd/blob/master/.circleci/config.yml).
 
 ## About This App
 
@@ -32,11 +32,9 @@ CFD(Continuous Food Delivery) is a sample application which relies on an API ser
 
 | Language |  GitHub | Description |
 |---|---|---|
-|  Python | [Link]()  | A Python-Flask CFD API server  |
+|  Python | [Link](https://github.com/CircleCI-Public/sample-python-cfd)  | A Python-Flask CFD API server  |
 
 ## Run and Test Locally
-
-If you would like to try this application out locally, you can find runtime instructions below.
 
 ### Requirements
 
@@ -44,7 +42,9 @@ Node v13.11+
 
 ### Run Local Dev Server
 
-Start the local development server with the following command:
+1. Begin first by selecting an appropriate CFD API service from the list above and follow the repo's instructions for launching the API service.
+
+2. Start the local development server with the following command:
 
 ```
 ionic serve
