@@ -33,10 +33,10 @@
 </style>
 
 <script lang="ts">
-import ZoomFoodAPI from '@/api/ZoomFoodAPI'
-import { IonCard, IonIcon, IonButton} from '@ionic/vue'
+import ZoomFoodAPI from "@/api/ZoomFoodAPI"
 import { defineComponent, onMounted, ref } from "vue"
-import { trashOutline } from 'ionicons/icons';
+import { trashOutline } from 'ionicons/icons'
+import { IonCard, IonIcon, IonButton } from "@ionic/vue"
 import useCart from "../compostables/Cart"
 import { MenuItem } from "../interfaces"
 

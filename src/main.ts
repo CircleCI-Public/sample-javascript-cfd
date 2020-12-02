@@ -23,8 +23,6 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-console.log("env: " + process.env.API_URL)
-
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
