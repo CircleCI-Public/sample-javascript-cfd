@@ -4,15 +4,15 @@
 
 ## Description
 
-This Sample Vue.js front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.com
+This Sample Vue.js front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.
+
+You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
 
 In this sample config, we have a single workflow `build-and-test` which will install and cache our node packages, and run `npm run test` within a node-based executor. This config makes use of the [Node orb](https://circleci.com/developer/orbs/orb/circleci/node), a package for CircleCI's config language, which makes writing our config shorter, and easier.
 
 ## Getting Started
 
-You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
-
-The [CircleCI configuration](https://circleci.com/docs/2.0/configuration-reference/) file can be found at [.circleci/config.yml](https://github.com/CircleCI-Public/sample-javascript-cfd/blob/master/.circleci/config.yml).
+If you would like to copy the [config.yml](https://github.com/CircleCI-public/sample-javascript-cfd/blob/main/.circleci/config.yml) and adapt it to your project, be sure to read the comments in the config file to ensure it works for your project. For more details, see the [CircleCI configuration reference](https://circleci.com/docs/2.0/configuration-reference/).
 
 ## About This App
 
