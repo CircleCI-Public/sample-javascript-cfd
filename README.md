@@ -24,7 +24,7 @@ _Both [Vue.js](https://github.com/vuejs/vue) and [Ionic Framework](https://ionic
 
 When you load up the app, you will be presented with a menu from the _Continuous Food Delivery_ service, and a cart for items you wish to order. Click on items from the menu to have them added to your cart in real-time and the order total will automatically calculate.
 
-![Preview Gif of Continuous Food Delivery app](./.github/img/preview.gif)
+![Preview Gif of Continuous Food Delivery app](https://github.com/CircleCI-Public/sample-javascript-cfd/blob/master/.github/img/preview.gif?raw=true)
 
 ### API Server
 
