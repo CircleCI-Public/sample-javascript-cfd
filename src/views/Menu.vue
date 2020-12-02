@@ -5,14 +5,14 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>FoodZoom</ion-title>
+        <ion-title>Continuous Food Delivery</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content :fullscreen="true">
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">FoodZoom</ion-title>
+          <ion-title size="large">Continuous Food Delivery</ion-title>
         </ion-toolbar>
       </ion-header>
 
