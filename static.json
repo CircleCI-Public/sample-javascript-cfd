@@ -4,4 +4,4 @@
     "routes": {
       "/**": "index.html"
     }
-  }
+}

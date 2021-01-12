@@ -9,21 +9,6 @@ orbs:
   node: circleci/node@4.1
   heroku: circleci/heroku@1.2
 
-
-jobs:
-  # Below is the definition of your job to build and deploy your Node app. You can rename and customize it as you want.
-  build-and-deploy:
-    docker:
-      - image: cimg/node:15.1
-    steps:
-      - checkout
-      - node/install-packages
-      - run:
-          name: Build Node App
-          command: npm run build
-      - heroku/install
-
-
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
@@ -32,11 +17,12 @@ workflows:
   sample:
     jobs:
       - node/test
-      - build-and-deploy:
+      - heroku/deploy-via-git:
+          force: true  # this parameter instructs the push to use a force flag when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
           requires:
-            - node/test
-        filters:
-              branches:
-                # This sample config runs this job on any branch matching the regex below, however, it's more likely you want to only run this job on master.
-                only: .*/heroku-deploy  # Delete this line
-                # only: master  # Uncomment this line
+            - node/test # only run deploy-via-git job if the build job has completed
+          filters:
+            branches:
+              # This sample config runs this job on any branch matching the regex below, however, it's more likely you want to only run this job on master.
+              only: /.*-heroku-deploy/  # Delete this line
+              # only: master  # Uncomment this line
