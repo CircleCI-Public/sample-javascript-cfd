@@ -1,10 +1,10 @@
-# Sample Javascript App - Vue.js Front-End
+# Sample Javascript App - Vue.JS Front-End
 
 [![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/sample-javascript-cfd/main/LICENSE)
 
 ## Description
 
-This Sample Vue.js front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.
+This Sample Vue.JS front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.
 
 You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
 
@@ -16,9 +16,9 @@ If you would like to copy the [config.yml](https://github.com/CircleCI-public/sa
 
 ## About This App
 
-This sample application is a _Single Page Application_ written in [Vue.js](https://github.com/vuejs/vue), a popular front-end JavaScript framework, and utilizes the [Ionic Framework](https://ionicframework.com/) which will allow us to deploy our application to mobile devices.
+This sample application is a _Single Page Application_ written in [Vue.JS](https://github.com/vuejs/vue), a popular front-end JavaScript framework, and utilizes the [Ionic Framework](https://ionicframework.com/) which will allow us to deploy our application to mobile devices.
 
-_Both [Vue.js](https://github.com/vuejs/vue) and [Ionic Framework](https://ionicframework.com/) are also users of CircleCI 🎉, and you can view the CI configs they use in their respective repositories_
+_Both [Vue.JS](https://github.com/vuejs/vue) and [Ionic Framework](https://ionicframework.com/) are also users of CircleCI 🎉, and you can view the CI configs they use in their respective repositories_
 
 ### Continuous Food Delivery
 
