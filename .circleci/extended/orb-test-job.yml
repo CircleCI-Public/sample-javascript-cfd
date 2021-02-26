@@ -7,4 +7,6 @@ orbs:
 workflows:
   sample:
     jobs:
-      - node/test
+      - node/test:
+          # this is the node version to use for the `cimg/node` tag
+          version: 15.1
