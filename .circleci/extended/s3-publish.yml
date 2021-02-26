@@ -20,8 +20,9 @@ jobs:
       - attach_workspace:
             at: dist
       - aws-s3/copy:
-          from: dist
-          to: s3://sample-apps/vue
+          from: dist/
+          to: s3://sample-app-vue
+          arguments: --recursive
 
 workflows:
   sample:
