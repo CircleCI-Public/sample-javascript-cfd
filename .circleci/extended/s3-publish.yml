@@ -1,6 +1,6 @@
 # This config uses the `.circleci/extended/orb-test.yml` as its base, and then publishes the app to S3.
 # The workflow contained here demonstrates a practical application of `post-steps`
-# and using workspace persistence 
+# and using workspace persistence
 version: 2.1
 
 orbs:
@@ -18,9 +18,9 @@ jobs:
       - image: cimg/base:stable
     steps:
       - attach_workspace:
-            at: /tmp/dist
+            at: dist
       - aws-s3/copy:
-          from: /tmp/dist
+          from: dist
           to: s3://sample-apps/vue
 
 workflows:
@@ -32,8 +32,8 @@ workflows:
           post-steps:
             - run: npm run build
             - persist_to_workspace:
-                root: /tmp/dist
+                root: dist
                 paths:
-                  - dist/
+                  - ./*
       - s3-publish
 
