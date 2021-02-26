@@ -3,10 +3,12 @@
 version: 2.1
 
 orbs:
-  # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
-  # Orbs reduce the amount of configuration required for common tasks.
-  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.1
+  # The heroku orb contains a set of prepackaged CircleCI configuration you can utilize to deploy applications to heroku
+  # Orbs reduce the amount of configuration required for common tasks.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/heroku
+  # NOTE: Environment variables containing the necessary secrets can be setup in the circleci UI
+  # See here https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project
   heroku: circleci/heroku@1.2
 
 workflows:
