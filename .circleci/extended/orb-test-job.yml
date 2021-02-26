@@ -9,4 +9,4 @@ workflows:
     jobs:
       - node/test:
           # this is the node version to use for the `cimg/node` tag
-          version: 15.1
+          version: "15.1"
