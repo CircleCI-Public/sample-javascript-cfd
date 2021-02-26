@@ -6,7 +6,6 @@ orbs:
 workflows:
   sample:
     jobs:
-      - test:
       - node/test:
           matrix:
             parameters:
