@@ -35,5 +35,7 @@ workflows:
                 root: dist
                 paths:
                   - ./*
-      - s3-publish
+      - s3-publish:
+          requires:
+            - node/test
 
