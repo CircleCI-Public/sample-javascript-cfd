@@ -5,7 +5,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.1
-  # The S3 orb is will setup the aws-cli and quickly copy or sync anything to s3.
+  # The S3 orb will setup the aws-cli and quickly copy or sync anything to s3.
   # Orbs reduce the amount of configuration required for common tasks.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/aws-s3
   # NOTE: Environment variables containing the necessary secrets can be setup in the CircleCI UI
@@ -19,6 +19,7 @@ jobs:
     steps:
       - attach_workspace:
             # this adds the dist directory to the workspace, which by default is /home/circleci/project/
+            # see the persist_to_workspace step below in the node/test post-steps
             at: dist
       - aws-s3/copy:
           from: dist/
@@ -30,9 +31,12 @@ workflows:
     jobs:
       - node/test:
           version: "15.1"
-          # after the test complete, build the dist packages and save them to a workspace
+          # after the node/test job completes, build the dist packages and save them to a workspace
           post-steps:
             - run: npm run build
+            # For more information on persisting data between workspace see the configuration reference guide:
+            # https://circleci.com/docs/2.0/configuration-reference/#persist_to_workspace
+            # and the following concepts page: https://circleci.com/docs/2.0/concepts/#caches-workspaces-and-artifacts
             - persist_to_workspace:
                 # this will save all the contents in the local `dist` directory
                 root: dist
