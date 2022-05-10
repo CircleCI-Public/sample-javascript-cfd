@@ -6,13 +6,8 @@ const BASEURL = `${process.env.VUE_APP_API_URL}/${process.env.VUE_APP_NAME}/${pr
 export default class ZoomFoodAPI {
 
 static async getMenu(): Promise<MenuItem[]> {
-    try {
-        const menuData = await axios.get<Promise<MenuItem[]>>(BASEURL + "/menu")
-        return menuData.data
-    } catch (error) {
-        console.log(error)
-        return error
-    }
+    const menuData = await axios.get<Promise<MenuItem[]>>(BASEURL + "/menu");
+    return menuData.data;
 }
 
 static getImageUrl(imageID: number): string {
@@ -20,28 +15,16 @@ static getImageUrl(imageID: number): string {
 }
 
 static async getCart(): Promise<MenuItem[]> {
-    try {
-        const cartData = await axios.get<Promise<MenuItem[]>>(BASEURL + "/cart")
-        return cartData.data
-    } catch (error) {
-        return error
-    }
+    const cartData = await axios.get<Promise<MenuItem[]>>(BASEURL + "/cart");
+    return cartData.data;
 }
 
 static async addCartItem(item: MenuItem): Promise<AxiosResponse> {
-    try {
-        return axios.post(`${BASEURL}/cart`, item)
-    } catch (error) {
-        return error
-    }
+    return axios.post(`${BASEURL}/cart`, item);
 }
 
 static async removeCartItem(item: MenuItem): Promise<AxiosResponse> {
-    try {
-        return axios.delete(`${BASEURL}/cart/${item.id}`)
-    } catch (error) {
-        return error
-    }
+    return axios.delete(`${BASEURL}/cart/${item.id}`);
 }
 
 }
