@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified. Did you mean 'test:unit' \" && exit 0"
   },
   "dependencies": {
-    "@capacitor/core": "2.4.2",
+    "@capacitor/core": "2.5.0",
     "@ionic/vue": "^5.9.4",
     "@ionic/vue-router": "^5.9.4",
     "axios": "^0.21.4",
