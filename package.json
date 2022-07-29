@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "npx vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test": "vue-cli-service test:e2e",
+    "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "test": "echo \"Error: no test specified. Did you mean 'test:unit' \" && exit 0"
   },
