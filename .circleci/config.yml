@@ -13,10 +13,10 @@ jobs: {}
 workflows:
   build-and-deploy:
     jobs:
-      - node/run
+      - node/test
       - heroku/deploy-via-git:
           requires:
-            - node/run
+            - node/test
 orbs:
   node: circleci/node@5.0.2
   heroku: circleci/heroku@1.2.6
