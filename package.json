@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npx serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
@@ -17,7 +17,8 @@
     "axios": "^0.21.4",
     "core-js": "^3.22.5",
     "vue": "^3.2.33",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.15",
+    "@vue/cli-service": "^5.0.4"
   },
   "devDependencies": {
     "@capacitor/cli": "^3.5.1",
@@ -30,7 +31,6 @@
     "@vue/cli-plugin-router": "^5.0.4",
     "@vue/cli-plugin-typescript": "^5.0.4",
     "@vue/cli-plugin-unit-jest": "^5.0.4",
-    "@vue/cli-service": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-rc.21",
