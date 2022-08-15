@@ -2,7 +2,7 @@
   "name": "continuous-food-delivery",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://cfd-test-1.herokuapp.com/"
+  "homepage": "https://cfd-test-1.herokuapp.com/",
   "scripts": {
     "start": "npx serve -s dist",
     "build": "vue-cli-service build",
