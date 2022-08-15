@@ -18,6 +18,9 @@
     "core-js": "^3.22.5",
     "vue": "^3.2.33",
     "vue-router": "^4.0.15",
+    "@vue/cli-plugin-babel": "^5.0.4",
+    "@vue/cli-plugin-router": "^5.0.4",
+    "@vue/cli-plugin-typescript": "^5.0.4",
     "@vue/cli-service": "^5.0.4"
   },
   "devDependencies": {
@@ -25,11 +28,8 @@
     "@types/jest": "^27.5.0",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
-    "@vue/cli-plugin-babel": "^5.0.4",
     "@vue/cli-plugin-e2e-cypress": "^5.0.4",
     "@vue/cli-plugin-eslint": "^5.0.4",
-    "@vue/cli-plugin-router": "^5.0.4",
-    "@vue/cli-plugin-typescript": "^5.0.4",
     "@vue/cli-plugin-unit-jest": "^5.0.4",
     "@vue/compiler-sfc": "^3.2.33",
     "@vue/eslint-config-typescript": "^5.0.2",
