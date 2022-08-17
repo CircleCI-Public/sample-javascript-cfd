@@ -1,6 +1,6 @@
-// https://docs.cypress.io/api/introduction/api.html
+// https://docs.cypress.io/api/table-of-contents
 
-describe("Sample Test", () => {
+describe("My First Test", () => {
   it("Visits the app root url", () => {
     cy.visit("/");
     cy.contains("ion-title", "Continuous Food Delivery");
