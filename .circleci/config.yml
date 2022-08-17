@@ -5,7 +5,7 @@ version: 2.1
 executors:
   node-cypress:
     docker:
-      - image: "cypress/node16.14.0-chrome99-ff97"
+      - image: "cypress/browsers:node16.14.0-chrome99-ff97"
 
 orbs:
   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
