@@ -29,8 +29,6 @@ jobs:
       - run:
           name: Run tests
           command: yarn run test:unit
-      - cypress/run:
-          yarn: true
 
 workflows:
   # Below is the definition of your workflow.
@@ -40,5 +38,7 @@ workflows:
   sample:
     jobs:
       - test
+      - cypress/run:
+          yarn: true
       # For running simple node tests, you could optionally instead use the node/test job from the orb to replicate and replace the manually defined "test" job above in fewer lines.
       # - node/test
