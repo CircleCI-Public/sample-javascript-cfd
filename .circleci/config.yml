@@ -27,7 +27,9 @@ jobs:
           pkg-manager: "yarn"
       - run:
           name: Run tests
-          command: npm run test:e2e
+          command: yarn run test:unit
+      - cypress/run:
+          yarn: true
 
 workflows:
   # Below is the definition of your workflow.
