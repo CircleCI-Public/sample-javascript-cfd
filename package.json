@@ -14,7 +14,7 @@
     "@ionic/vue": "^5.9.4",
     "@ionic/vue-router": "^5.9.4",
     "axios": "^0.21.4",
-    "core-js": "^3.8.3",
+    "core-js": "^3.25.0",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.15"
