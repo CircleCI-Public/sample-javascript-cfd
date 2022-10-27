@@ -38,16 +38,24 @@ CFD(Continuous Food Delivery) is a sample application which relies on an API ser
 
 ### Requirements
 
-Node v13.11+
+Node v16+
 
 ### Run Local Dev Server
 
-1. Begin first by selecting an appropriate CFD API service from the list above and follow the repo's instructions for launching the API service.
-
-2. Start the local development server with the following command:
+1. Install packages
 
 ```
-ionic serve
+yarn install
+```
+
+1. Begin first by selecting an appropriate CFD API service from the list above and follow the repo's instructions for launching the API service.
+
+1. Update `VUE_APP_API_URL` located in `.env` to desired API service route.
+
+1. Start the local development server with the following command:
+
+```
+yarn start
 ```
 
 ### Tests
