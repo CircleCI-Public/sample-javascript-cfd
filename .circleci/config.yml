@@ -33,7 +33,7 @@ jobs:
           pkg-manager: "yarn"
       - run:
           name: Run tests
-          command: yarn run test:unit
+          command: yarn run test:unit --changedSince << pipeline.git.base_revision >>
 
 workflows:
   # Below is the definition of your workflow.
