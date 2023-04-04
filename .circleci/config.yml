@@ -31,9 +31,19 @@ jobs:
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
           pkg-manager: "yarn"
-      - run:
-          name: Run tests
-          command: yarn run test:unit --changedSince << pipeline.git.base_revision >>
+      - when:
+          condition: << pipeline.git.base_revision >>
+          steps:
+            - run:
+                name: Run tests
+                command: yarn run test:unit --changedSince << pipeline.git.base_revision >>
+      - unless:
+          condition: << pipeline.git.base_revision >>
+          steps:
+            - run:
+                name: Run tests
+                command: yarn run test:unit
+
 
 workflows:
   # Below is the definition of your workflow.
