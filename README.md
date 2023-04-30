@@ -1,24 +1,24 @@
-# Sample Javascript App - Vue.js Front-End
+# Sample Javascript App - Vue.JS Front-End
 
 [![CircleCI Build Status](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd.svg?style=shield)](https://circleci.com/gh/CircleCI-Public/sample-javascript-cfd) [![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CircleCI-Public/sample-javascript-cfd/main/LICENSE)
 
 ## Description
 
-This Sample Vue.js front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.com
+This Sample Vue.JS front-end project demonstrates what a typical JavaScript (or node) CI workflow may look on CircleCI.
+
+You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
 
 In this sample config, we have a single workflow `build-and-test` which will install and cache our node packages, and run `npm run test` within a node-based executor. This config makes use of the [Node orb](https://circleci.com/developer/orbs/orb/circleci/node), a package for CircleCI's config language, which makes writing our config shorter, and easier.
 
 ## Getting Started
 
-You can preview the live CI workflow for this application [on CircleCI](https://app.circleci.com/pipelines/github/CircleCI-Public/sample-javascript-cfd?branch=main).
-
-The [CircleCI configuration](https://circleci.com/docs/2.0/configuration-reference/) file can be found at [.circleci/config.yml](https://github.com/CircleCI-Public/sample-javascript-cfd/blob/master/.circleci/config.yml).
+If you would like to copy the [config.yml](https://github.com/CircleCI-public/sample-javascript-cfd/blob/main/.circleci/config.yml) and adapt it to your project, be sure to read the comments in the config file to ensure it works for your project. For more details, see the [CircleCI configuration reference](https://circleci.com/docs/2.0/configuration-reference/).
 
 ## About This App
 
-This sample application is a _Single Page Application_ written in [Vue.js](https://github.com/vuejs/vue), a popular front-end JavaScript framework, and utilizes the [Ionic Framework](https://ionicframework.com/) which will allow us to deploy our application to mobile devices.
+This sample application is a _Single Page Application_ written in [Vue.JS](https://github.com/vuejs/vue), a popular front-end JavaScript framework, and utilizes the [Ionic Framework](https://ionicframework.com/) which will allow us to deploy our application to mobile devices.
 
-_Both [Vue.js](https://github.com/vuejs/vue) and [Ionic Framework](https://ionicframework.com/) are also users of CircleCI 🎉, and you can view the CI configs they use in their respective repositories_
+_Both [Vue.JS](https://github.com/vuejs/vue) and [Ionic Framework](https://ionicframework.com/) are also users of CircleCI 🎉, and you can view the CI configs they use in their respective repositories_
 
 ### Continuous Food Delivery
 
@@ -38,16 +38,24 @@ CFD(Continuous Food Delivery) is a sample application which relies on an API ser
 
 ### Requirements
 
-Node v13.11+
+Node v16+
 
 ### Run Local Dev Server
 
-1. Begin first by selecting an appropriate CFD API service from the list above and follow the repo's instructions for launching the API service.
-
-2. Start the local development server with the following command:
+1. Install packages
 
 ```
-ionic serve
+yarn install
+```
+
+2. Begin first by selecting an appropriate CFD API service from the list above and follow the repo's instructions for launching the API service.
+
+3. Update `VUE_APP_API_URL` located in `.env` to desired API service route.
+
+4. Start the local development server with the following command:
+
+```
+yarn start
 ```
 
 ### Tests
